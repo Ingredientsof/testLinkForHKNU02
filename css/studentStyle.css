@@ -1,0 +1,109 @@
+.switch{flex-direction: row;}
+
+.row .cal1_1{
+    width: 0px;
+    margin: 0;
+}
+
+.gridContainer{
+    display: grid;
+    position: relative;
+}
+
+.gridContainer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(0deg,white,1px,transparent 0.75px),
+    linear-gradient(90deg,white,0.75px,transparent 1px);
+    background-size: 35px 35px;
+    pointer-events: none;
+    opacity: 30%;
+    z-index: -99;
+}
+
+.contain{
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 10rem;
+}
+
+.person{
+    width: calc(25% - 2rem);
+    margin: 0 1rem;
+}
+
+.personImg{
+    width: 100%;
+    aspect-ratio: 1; /* 정사각형 비율 유지 */
+    background-color: white;
+    margin-top: 4.8rem;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* 컨테이너 밖으로 나가는 이미지 숨김 */
+}
+
+.personImg::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 95%;
+    border: 3px solid #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+
+.personImg:hover{border: 2px solid white;}
+.personImg:hover::before {opacity: 1;}
+
+.personImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.personImg:hover::before {
+    opacity: 1;
+}
+
+.personName{
+    margin-top: 1.4rem;
+    display: inline-block;
+    user-select: none;
+    width: 100%;
+}
+
+.personSubject{
+    margin-top: 0.4rem;
+    user-select: none;
+    color: #b4b4b4;
+}
+
+#dot{opacity: 0;}
+#student{opacity: 1;}
+#work{opacity: 0.5;}
+#work:hover{opacity: 1;}
+
+@media all and (max-width: 1440px) {
+    .personImg::before {width: 17.5vw; height: 17.5vw;}
+}
+
+@media all and (max-width: 1024px) {
+    .person{width: calc(33.33% - 2rem); margin: 0 1rem;}
+    .personImg::before {width: 35vw; height: 35vw;}
+}
+
+@media all and (max-width: 800px) {
+    .person{width: calc(50% - 2rem); margin: 0 1rem;}
+    .personName{margin-top: 0.8rem;}
+}

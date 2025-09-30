@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>학생 이름</title><!--학생 이름-->
+
+    <link rel="icon" href="../css/img/webICON.ico">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="./studentStyle2.css">
+
+    <script src="../js/baseScript.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>    
+</head>
+
+<body class="studentContainer">
+
+    <button id="backToTop">
+        <img src="../img/nav/backYoUp.png" alt="">
+    </button>
+
+    <nav>
+        <div class="menuBar">
+            <div id="logo">
+                <a href="../index.html"><img src="../img/nav/LASTEYE CONTACT 1.png" alt=""></a>
+            </div>
+
+            <div class="arrayRight" id="menu">
+                <a href="../archive.html">
+                    <img src="../img/nav/PROJECT_selectNone.png" alt="">
+                    <img class="hover-img" src="../img/nav/PROJECT_select.png" alt="">
+                </a>
+                
+                <div class="sub-menu">
+                    <a href="#"><img src="../img/nav/ALL.svg" alt=""></a>
+                    <a href="#"><img src="../img/nav/BD.svg" alt=""></a>
+                    <a href="#"><img src="../img/nav/DCP.svg" alt=""></a>
+                    <a href="#"><img src="../img/nav/IB.svg" alt=""></a>
+                    <a href="#"><img src="../img/nav/VP.svg" alt=""></a>
+                </div>
+                
+                <a href="../student.html">
+                    <img class="border-img" src="../img/nav/menuBoxBorder.png" alt="">
+                    <img src="../img/nav/STUDENTS_select.png" alt="">
+                </a>
+            </div>
+
+
+            <img class="hamBtn" src="../img/nav/hamBtn.svg" alt="">
+        </div>
+    </nav>
+
+
+    <div class="profileWrapper">
+        
+        <div class="profile row">
+            <div class="profileImgSetting">
+                <div class="peopleImg">
+                    <img src="../img/thum.png" alt="">
+                </div>
+            </div>
+
+            <div class="personEx">
+                <div class="nameSubject row">
+                    <p class="studentName">학생이름</p>
+                </div>
+
+                <div class="">
+                    <p class="color_grey studentIntroduce" id="introduce">한 줄 자기 소개</p>
+                </div>
+                
+                <div class="contact-wrapper">
+                    <div class="links">
+                        <p class="studentIntroduce" id="introduce">한 줄 자기 소개</p>
+                        <div class="info studentIntroduce">
+                            <img src="./studentImg/mail.svg" alt="">
+                            <p class="">이메일</p>
+                        </div>
+                    </div>
+
+                    <div class="info2">
+                        <div class="linkCircle">
+                            <img src="./studentImg/linkIcon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profileBackground">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="./studentImg/00profileBox.png">
+                <source media="(max-width: 1023px)" srcset="./studentImg/00profileBox02.svg">
+                <img src="./studentImg/00profileBox.png" alt="프로필 배경">
+            </picture>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="cal1"></div>
+        <div class="projects">
+            <p class="">Projects</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cal1"></div>
+        <div class="contain">
+            <!--작품 상세페이지 링크-->
+            <a class="project" href="../digital/projectEX.html">
+                <div class="projectImg">
+                    <img src="../img/thum.png" alt="">
+                    <div class="hover-badge">Visual</div>
+                </div>
+                <p class="fontBold p20 projectName">작품명</p>
+            </a>
+
+            <!--작품 상세페이지 링크-->
+            <a class="project" href="../digital/projectEX02.html">
+                <div class="projectImg">
+                    <img src="../img/thum.png" alt="">
+                    <div class="hover-badge">Design</div>
+                </div>
+                <p class="fontBold p20 projectName">작품명</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="cal1_1"></div>
+            <div class="cal1_10">
+                <img id="icon" src="../img/footer/LASTEYE CONTACT.png" alt="">
+            </div>
+        </div>
+        <div class="row footerEx text-black">
+            <div class="cal1_7">
+                <div class="row" id="footerArray">
+                    <p class="p14 fontMedium line_height">2025 한경국립대학교 시각미디어디자인전공
+                        <br>제29회 졸업전시회 : LAST EYE CONTACT
+                    </p>
+                    <div class="link row">
+                        <a href="">
+                            <p class="p14 fontMedium line_height text-blue">Instagram</p>
+                        </a>
+                        <a href="">
+                            <p class="p14 fontMedium line_height text-blue">Youtube</p>
+                        </a>
+                        <a href="">
+                            <p class="p14 fontMedium line_height text-blue">Homepage</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cal1_3 arrayRight">
+                <div class="footerEx2">
+                    <p class="p14 fontMedium line_height">2025 한경국립대학교 시각미디어디자인전공
+                        <br>경기도 안성시 중앙로 327 한경국립대학교 제3공학관
+                        <br>ⓒ 2025 HKNUDESIGN. All rights reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>

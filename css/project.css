@@ -1,0 +1,212 @@
+/* ========================== 기본 섹션 ========================== */
+#title{width: 25%;}
+.projectSubject {width: 75%;}
+#ex{margin-top: 6rem; margin-bottom: 4rem;}
+
+.explan{width: 100%; margin-top: 2rem; margin-bottom: 4rem;}
+.subName{margin-top: 6rem; width: 100%;}
+.subExplan{margin-top: 2.1rem; width: 100%;}
+.subExplan2{margin-top: 2.1rem; width: 100%;}
+.classes {margin-bottom: 3rem; color: #0035FF;}
+.SubjectTxt{line-height: 2.6rem;}
+.professor {margin-bottom: 1.2rem; line-height: 2.4rem;}
+.subTxtTxt {line-height: 2.8rem;}
+.subM {margin-bottom: 4rem;}
+.personName {margin-top: 2rem;}
+
+/* ========================== 메뉴(아이콘 2장 토글) ========================== */
+.menuList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0rem 2rem 0rem 0rem;
+}
+
+.menuList div {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.menuList div img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s ease, opacity 0.3s ease-in-out, filter 0.25s ease;
+}
+
+/* 두 번째 이미지(선택 상태)는 기본 숨김 */
+.menuList div img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* active: 두 번째만 보이게 */
+.menuList div.active img:nth-child(1) { opacity: 0; }
+.menuList div.active img:nth-child(2) { opacity: 1; }
+
+/* hover(미선택): 살짝 확대 + 검정 강조 */
+.menuList div:not(.active):hover img:nth-child(1) {
+  transform: scale(1.04);
+  filter: brightness(0);
+}
+
+/* active 상태는 hover 무효 */
+.menuList div.active:hover img:nth-child(2) {
+  transform: none;
+  filter: none;
+}
+
+/* 접근성: 키보드 포커스 */
+.menuList div:not(.active):focus-visible img:nth-child(1) {
+  transform: scale(1.08);
+  filter: brightness(0);
+  outline: none;
+}
+
+/* ========================== 설명 토글(초기 ALL만) ========================== */
+.projectSubject [id] {display: none;}
+.projectSubject [id*="all"] {display: block;}
+
+/* ========================== 2열 레이아웃 (좌 25% / 우 75%) ========================== */
+#subjectList{
+  display: grid;
+  grid-template-columns: 25% 1fr; /* 좌: 25%, 우: 나머지(=75%) */
+  column-gap: 1.25rem;            /* 좌우 간격 */
+  width: 87vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 좌우 영역은 각 칼럼 폭만 사용 */
+#menuList,
+#projectList{
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* 혹시 남아있는 과거 설정 무력화(오버플로 원인 제거) */
+#projectList{
+  flex: initial !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* .projectSubject가 내부에서 폭을 더 키우지 않게 보정 */
+#projectList .projectSubject{
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* ========================== 우측 컨텐츠: 3단 그리드 ========================== */
+#projectList .contain{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3단(각 1/3) */
+  gap: 2rem;                                        /* 카드 간격 2rem */
+  width: 100%;
+  margin-bottom: 10rem;
+  box-sizing: border-box;
+}
+
+/* 다른 곳에서 선언된 .contain이 있어도 이 규칙이 대표로 동작 */
+.contain{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 10rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 그리드 아이템(카드) 기본 보정: 외부 마진 제거로 gap만 간격 역할 */
+#projectList .contain > *{ margin-bottom: 4rem; }
+
+/* ========================== 카드(이미지+텍스트) 플로팅 ========================== */
+/* 카드 전체(이미지+텍스트)를 함께 떠오르게 */
+.contain .person{
+  display: block;           /* a.person 지원 */
+  width: auto;
+  max-width: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease; /* 카드 자체에 전환 */
+  will-change: transform;
+}
+
+.contain .person:hover{
+  transform: translateY(-1rem);    /* 카드 전체 위로 1rem */
+}
+
+/* ========================== 썸네일(네모 박스 꽉 채움 + 중앙 90% 보더) ========================== */
+.contain .personImg,
+.contain .imgBox{
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* 정사각형 박스 */
+  position: relative;
+  overflow: hidden;
+  background: #fff;      /* 검은 빈칸 방지: 카드 전체가 떠오르므로 흰 배경 */
+  box-sizing: border-box;
+}
+
+/* 이미지: 카드 이동과 별개로 자체 이동 없음(검은칸 방지) */
+.contain .personImg img,
+.contain .imgBox img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 중앙 90% 하얀 보더 — 카드 hover 시 등장 */
+.contain .personImg::before,
+.contain .imgBox::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 95%;
+  transform: translate(-50%, -50%);  /* 정중앙 기준 */
+  border: 3px solid #FFFFFF;
+  box-sizing: border-box;
+  opacity: 0;                         /* 기본은 숨김 */
+  pointer-events: none;               /* 클릭 방해 X */
+  z-index: 2;                         /* 이미지 위 */
+  transition: opacity 0.25s ease;
+}
+
+/* 카드 hover 시 보더 표시 */
+.contain .person:hover .personImg::before,
+.contain .person:hover .imgBox::before{
+  opacity: 1;
+}
+
+/* ========================== 반응형 ========================== */
+@media all and (max-width: 1024px) {
+    #title {
+    display: none;
+  }
+
+    .projectSubject {
+        width: 100%;
+    }
+
+    #menuList {
+    display: none;
+  }
+  #subjectList {
+    grid-template-columns: 1fr; /* 한 줄 전체 */
+  }
+  
+  #projectList .contain,
+  .contain{
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 태블릿: 2단 */
+    gap: 1.5rem;
+  }
+}
